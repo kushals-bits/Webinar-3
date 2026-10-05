@@ -1,0 +1,42 @@
+[
+  {
+    "id": "SYM_01",
+    "name": "Itching",
+    "snomed": "418290006"
+  },
+  {
+    "id": "SYM_02",
+    "name": "Asymmetric Mole",
+    "snomed": "247441003"
+  },
+  {
+    "id": "SYM_03",
+    "name": "Chest Pain",
+    "snomed": "29857009"
+  },
+  {
+    "id": "SYM_04",
+    "name": "Pus Discharge",
+    "snomed": "271790001"
+  },
+  {
+    "id": "SYM_05",
+    "name": "Shortness of Breath",
+    "snomed": "267036007"
+  },
+  {
+    "id": "SYM_06",
+    "name": "Erythema Redness",
+    "snomed": "247441003"
+  },
+  {
+    "id": "SYM_07",
+    "name": "Palpitations",
+    "snomed": "80313002"
+  },
+  {
+    "id": "SYM_08",
+    "name": "Non-healing Ulcer",
+    "snomed": "239108000"
+  }
+]

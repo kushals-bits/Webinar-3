@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.env
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Presentation and walkthrough document artifacts (internal webinar preparation)
+*.docx
+~$*
+WEBINAR3_*
+STUDENT_GUIDE.md
+build_walkthrough_doc.py
+build_webinar_html.py
+generate_flowcharts.py

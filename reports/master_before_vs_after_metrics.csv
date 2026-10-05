@@ -1,0 +1,6 @@
+Curriculum Track,Model Architecture,Baseline Acc,Baseline F1-Macro,Preprocessed Acc,Preprocessed F1-Macro,Delta F1 (Lift)
+Text (Module 9),Calibrated LinearSVC + Negation TF-IDF,1.0,1.0,1.0,1.0,0.0
+Image (Module 10),RBF SVM (CLAHE + Randomized PCA-50),0.9667,0.9666,0.9333,0.933,-0.0336
+Biosignal (Module 10),Random Forest + STFT Spectrogram Features,0.5333,0.5312,0.8667,0.8643,0.333
+Time-Series (Module 11),Gradient Boosting (5m Resample + Lags + No Leakage),0.8483,0.5892,0.9149,0.6024,0.0133
+Knowledge Graph (Module 12),Random Forest (Node Embeddings + PageRank),0.9667,0.9666,0.9667,0.9666,0.0

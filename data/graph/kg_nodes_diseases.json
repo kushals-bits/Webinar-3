@@ -1,0 +1,38 @@
+[
+  {
+    "id": "DIS_01",
+    "name": "Melanoma",
+    "category": "Malignancy",
+    "icd10": "C43"
+  },
+  {
+    "id": "DIS_02",
+    "name": "Atopic Dermatitis",
+    "category": "Inflammatory",
+    "icd10": "L20"
+  },
+  {
+    "id": "DIS_03",
+    "name": "Bacterial Cellulitis",
+    "category": "Infectious",
+    "icd10": "L03"
+  },
+  {
+    "id": "DIS_04",
+    "name": "Diabetic Foot Ulcer",
+    "category": "Metabolic",
+    "icd10": "E11.621"
+  },
+  {
+    "id": "DIS_05",
+    "name": "Arrhythmia",
+    "category": "Cardiovascular",
+    "icd10": "I49"
+  },
+  {
+    "id": "DIS_06",
+    "name": "Psoriasis Vulgaris",
+    "category": "Autoimmune",
+    "icd10": "L40"
+  }
+]

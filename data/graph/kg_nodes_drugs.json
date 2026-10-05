@@ -1,0 +1,32 @@
+[
+  {
+    "id": "DRUG_01",
+    "name": "Amoxicillin",
+    "class": "Antibiotic"
+  },
+  {
+    "id": "DRUG_02",
+    "name": "Betamethasone",
+    "class": "Corticosteroid"
+  },
+  {
+    "id": "DRUG_03",
+    "name": "Methotrexate",
+    "class": "Immunosuppressant"
+  },
+  {
+    "id": "DRUG_04",
+    "name": "Metoprolol",
+    "class": "Beta Blocker"
+  },
+  {
+    "id": "DRUG_05",
+    "name": "Pembrolizumab",
+    "class": "Immunotherapy"
+  },
+  {
+    "id": "DRUG_06",
+    "name": "Metformin",
+    "class": "Antidiabetic"
+  }
+]
