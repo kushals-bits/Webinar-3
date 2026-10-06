@@ -55,8 +55,9 @@
 ```
 Webinar 3/
 ├── README.md                          # Comprehensive project overview & benchmark results
-├── requirements.txt                   # Production dependencies
+├── requirements.txt                   # Production dependencies (including Streamlit)
 ├── main.py                            # Master orchestrator executing Modules 9, 10, 11, and 12
+├── app.py                             # Interactive Streamlit Multimodal Clinical Dashboard
 │
 ├── notebooks/                         # Interactive, executed sequential curriculum notebooks
 │   ├── 01_text_preprocessing.ipynb          # Module 9: Text Preprocessing & NLP
@@ -116,6 +117,31 @@ python src/data_generators/generate_datasets.py
 ```bash
 python main.py
 ```
+
+### 4. Launch Interactive Streamlit Dashboard
+```bash
+python -m streamlit run app.py
+```
+Open your browser at `http://localhost:8501` to interact with all 4 modality studios live.
+
+---
+
+## 🖥️ Interactive Streamlit Data Science Dashboard
+
+The repository includes a comprehensive, reactive **Streamlit Clinical Data Science Dashboard** (`app.py`), bridging analytical preprocessing scripts into an interactive visual suite:
+
+1. **📊 Executive Scorecard & Lift:** Real-time KPI callouts, interactive F1-score comparison bar charts, and plain-English takeaways.
+2. **📝 Module 9: Clinical Text & NLP Studio:** Live interactive text area with regex scrubbing, CamelCase splitting, OCR dictionary repair, negation-preserving stopwords, and HIPAA PHI masking diffs.
+3. **🖼️ Module 10A: Skin Lesion Computer Vision (CLAHE):** Real-time CLAHE parameter tuning (`clip_limit`, `tile_grid_size`), aspect-preserving resizing, and dynamic luminance histogram comparisons across Fitzpatrick skin types.
+4. **🩺 Module 10B: Acoustic Biosignals (PCG):** Interactive Butterworth filter tuning (cutoff frequencies, filter order), audio waveform plots, and STFT time-frequency power spectrograms for heart murmur detection.
+5. **📈 Module 11: Wearable Streams & Leakage Lab:** Asynchronous 5-minute grid resampling, multi-method imputation, 4-panel Circadian Seasonality decomposition, and an interactive **Data Leakage Trap** demonstrator.
+6. **🕸️ Module 12: Knowledge Graph Reasoning:** Color-coded clinical network graph (🔴 Diseases, 🟠 Symptoms, 🔵 Drugs, ⚪ Patients), live SNOMED-CT entity linking, and automated drug contraindication safety alerts.
+
+### Visual Dashboard Outputs
+* `reports/streamlit_dashboard_scorecard.png` – Executive Multimodal Scorecard & Lift Dashboard.
+* `reports/streamlit_module9_text_studio.png` – Module 9 Clinical Text & NLP Sanitization Studio.
+* `reports/streamlit_module10a_vision_clahe.png` – Module 10A Skin Lesion CLAHE & Luminance Histogram.
+* `reports/streamlit_module12_knowledge_graph.png` – Module 12 Clinical Knowledge Graph & Color Legend.
 
 ---
 
