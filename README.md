@@ -58,6 +58,7 @@ Webinar 3/
 ├── requirements.txt                   # Production dependencies (including Streamlit)
 ├── main.py                            # Master orchestrator executing Modules 9, 10, 11, and 12
 ├── app.py                             # Interactive Streamlit Multimodal Clinical Dashboard
+├── assets/                            # Branding assets & watermarks (BITS Pilani logo SVG)
 │
 ├── notebooks/                         # Interactive, executed sequential curriculum notebooks
 │   ├── 01_text_preprocessing.ipynb          # Module 9: Text Preprocessing & NLP

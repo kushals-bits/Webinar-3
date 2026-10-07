@@ -15,6 +15,7 @@ Modules Covered:
 import sys
 import os
 import json
+import base64
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -49,7 +50,78 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# Custom Styling
+# -----------------------------------------------------------------------------
+# BITS Pilani Watermark & Logo Loader
+# -----------------------------------------------------------------------------
+@st.cache_data
+def load_bits_logo_b64() -> str:
+    """Loads BITS Pilani logo SVG from E:\\BITS_Pilani-Logo.svg or local assets fallback."""
+    primary = Path(r"E:\BITS_Pilani-Logo.svg")
+    fallback = REPO_ROOT / "assets" / "BITS_Pilani-Logo.svg"
+    target = primary if primary.exists() else fallback
+    if target.exists():
+        try:
+            with open(target, "rb") as f:
+                return base64.b64encode(f.read()).decode("utf-8")
+        except Exception:
+            return ""
+    return ""
+
+logo_b64 = load_bits_logo_b64()
+
+watermark_css = f"""
+    /* Semi-transparent BITS Pilani central watermark */
+    [data-testid="stAppViewContainer"]::before {{
+        content: "";
+        position: fixed;
+        top: 52%;
+        left: 58%;
+        transform: translate(-50%, -50%);
+        width: 540px;
+        height: 540px;
+        background-image: url('data:image/svg+xml;base64,{logo_b64}');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        opacity: 0.055;
+        pointer-events: none;
+        z-index: 0;
+    }}
+    
+    /* Elegant floating institutional watermark badge in bottom-right */
+    .watermark-badge {{
+        position: fixed;
+        bottom: 18px;
+        right: 22px;
+        z-index: 999;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(8px);
+        padding: 6px 14px;
+        border-radius: 20px;
+        border: 1px solid rgba(203, 213, 225, 0.85);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }}
+    .watermark-badge img {{
+        height: 24px;
+        width: auto;
+    }}
+    .watermark-badge span {{
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #1E3A8A;
+        letter-spacing: 0.5px;
+    }}
+""" if logo_b64 else ""
+
+# Inject Watermark CSS if available
+if watermark_css:
+    st.markdown(f"<style>{watermark_css}</style>", unsafe_allow_html=True)
+
+# Custom Styling (Regular string, no f-string interpolation)
 st.markdown("""
 <style>
     .main-title {
@@ -136,6 +208,15 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Render floating watermark badge if logo exists
+if logo_b64:
+    st.markdown(f"""
+    <div class="watermark-badge">
+        <img src="data:image/svg+xml;base64,{logo_b64}" alt="BITS Pilani"/>
+        <span>BITS PILANI</span>
+    </div>
+    """, unsafe_allow_html=True)
+
 # -----------------------------------------------------------------------------
 # Cached Data Loaders
 # -----------------------------------------------------------------------------
@@ -181,7 +262,14 @@ def load_entity_linker():
 # Sidebar Navigation
 # -----------------------------------------------------------------------------
 with st.sidebar:
-    st.image("https://img.icons8.com/color/96/medical-heart.png", width=64)
+    if logo_b64:
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 12px;">
+            <img src="data:image/svg+xml;base64,{logo_b64}" style="width: 120px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12));"/>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.image("https://img.icons8.com/color/96/medical-heart.png", width=64)
     st.title("HealthAI 360")
     st.markdown("**Webinar 3: Multimodal Data Preprocessing for Clinical AI**")
     st.markdown("Transforming raw, noisy clinical streams into production-grade AI features.")
